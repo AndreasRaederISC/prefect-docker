@@ -3,7 +3,7 @@
 ###
 name: google-trends-gh-docker
 description: null
-version: d3fb9fb0d77fc4b54084bec651f554fb
+version: c77c003fb81669eab35a129f16e2bb90
 # The work queue that will handle this deployment's runs
 work_queue_name: test
 work_pool_name: default-agent-pool
@@ -75,5 +75,5 @@ parameter_openapi_schema:
       type: integer
   required: null
   definitions: null
-timestamp: '2023-06-22T07:08:34.205216+00:00'
+timestamp: '2023-06-22T07:12:00.301509+00:00'
 triggers: []
