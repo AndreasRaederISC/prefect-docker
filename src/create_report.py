@@ -18,10 +18,17 @@ def login_into_datapane():
     return shell_run_command(f"datapane login --token {token}")
 
 
+# @task
+# def upload_report(report_elements: list, keyword: str):
+#     dp.Report(*report_elements).upload(
+#         name=f"{keyword.title()} Report", publicly_visible=False
+#     )
+
+
 @task
 def upload_report(report_elements: list, keyword: str):
     dp.Report(*report_elements).upload(
-        name=f"{keyword.title()} Report", publicly_visible=True
+        name=f"{keyword.title()} Report", publicly_visible=False
     )
 
 
