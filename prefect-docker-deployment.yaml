@@ -3,12 +3,14 @@
 ###
 name: google-trends-gh-docker
 description: null
-version: c77c003fb81669eab35a129f16e2bb90
+version: d3fb9fb0d77fc4b54084bec651f554fb
 # The work queue that will handle this deployment's runs
 work_queue_name: test
+work_pool_name: default-agent-pool
 tags: []
 parameters: {}
 schedule: null
+is_schedule_active: true
 infra_overrides: {}
 
 ###
@@ -19,15 +21,12 @@ manifest_path: null
 infrastructure:
   type: docker-container
   env:
-    EXTRA_PIP_PACKAGES: datapane==0.15.1 plotly==5.10.0 prefect>=2.3.1 prefect_shell==0.1.1
-      pytrends==4.8.0
+    EXTRA_PIP_PACKAGES: datapane==0.16.5 plotly==5.15.0 prefect>=2.10.15 prefect_shell==0.1.5
+      pytrends==4.9.2
   labels: {}
   name: null
-  command:
-  - python
-  - -m
-  - prefect.engine
-  image: prefecthq/prefect:2.3.2-python3.9
+  command: null
+  image: prefecthq/prefect:2.10.15-python3.8
   image_pull_policy: null
   image_registry: null
   networks: []
@@ -35,16 +34,23 @@ infrastructure:
   auto_remove: false
   volumes: []
   stream_output: true
-  _block_document_id: 77f47e0e-63c1-4fc4-a785-7750c22eb499
+  memswap_limit: null
+  mem_limit: null
+  privileged: false
+  _block_document_id: 14c8cde9-f7aa-4b28-92e4-468dc1013186
   _block_document_name: google-trends
   _is_anonymous: false
+  block_type_slug: docker-container
   _block_type_slug: docker-container
 storage:
-  repository: https://github.com/khuyentran1401/prefect-docker
-  reference: master
-  _block_document_id: 1806cf00-a5a6-4834-9d06-159d2b8ee72f
+  repository: https://github.com/AndreasRaederISC/prefect-docker
+  reference: null
+  access_token: null
+  include_git_objects: true
+  _block_document_id: b7361f60-7e7a-4802-b822-deb7b566e6b0
   _block_document_name: pytrends
   _is_anonymous: false
+  block_type_slug: github
   _block_type_slug: github
 path: ''
 entrypoint: src/main.py:create_pytrends_report
@@ -55,14 +61,19 @@ parameter_openapi_schema:
     keyword:
       title: keyword
       default: COVID
+      position: 0
       type: string
     start_date:
       title: start_date
       default: '2020-01-01'
+      position: 1
       type: string
     num_countries:
       title: num_countries
       default: 10
+      position: 2
       type: integer
   required: null
   definitions: null
+timestamp: '2023-06-22T07:08:34.205216+00:00'
+triggers: []
