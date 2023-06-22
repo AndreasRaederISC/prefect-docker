@@ -21,7 +21,7 @@ manifest_path: null
 infrastructure:
   type: docker-container
   env:
-    EXTRA_PIP_PACKAGES: datapane==0.15.1 plotly==5.15.0 prefect>=2.10.15 prefect_shell==0.1.5
+    EXTRA_PIP_PACKAGES: datapane>=0.16.4 plotly==5.15.0 prefect>=2.10.15 prefect_shell==0.1.5
       pytrends==4.9.2
   labels: {}
   name: null
@@ -75,5 +75,5 @@ parameter_openapi_schema:
       type: integer
   required: null
   definitions: null
-timestamp: '2023-06-22T08:00:18.466644+00:00'
+timestamp: '2023-06-22T08:11:57.281241+00:00'
 triggers: []
