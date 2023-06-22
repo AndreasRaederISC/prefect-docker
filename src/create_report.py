@@ -27,6 +27,8 @@ def login_into_datapane():
 
 @task
 def task_upload_report(report_elements: list, keyword: str):
+    print("report_elements: ", *report_elements)
+    print("name: ", f"{keyword.title()} Report")
     dp.upload_report(
         *report_elements, name=f"{keyword.title()} Report", publicly_visible=False
     )
